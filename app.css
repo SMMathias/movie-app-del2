@@ -38,10 +38,16 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+    sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background: linear-gradient(135deg, var(--bg) 0%, #1a1a1a 50%, var(--primary-light) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--bg) 0%,
+    #1a1a1a 50%,
+    var(--primary-light) 100%
+  );
   color: var(--text);
   min-height: 100vh;
 }
@@ -138,6 +144,31 @@ footer {
 /* =====================
    MOVIE GRID & CARDS
    ===================== */
+/* Grid Container - parent element */
+#movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-content: stretch;
+  align-items: start;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Fylder fuld højde af grid cell */
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
 /* TODO !!! */
 
 .movie-card {
@@ -165,7 +196,11 @@ footer {
   width: 100%;
   height: 400px;
   object-fit: cover;
-  background: linear-gradient(135deg, var(--secondary-light), var(--primary-light));
+  background: linear-gradient(
+    135deg,
+    var(--secondary-light),
+    var(--primary-light)
+  );
   transition: var(--transition);
 }
 
@@ -415,4 +450,56 @@ dialog#movie-dialog::backdrop {
   #close-dialog {
     background: rgba(23, 23, 23, 0.9);
   }
+}
+
+#movie-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+
+/* Tablet - 2 kolonner */
+@media (min-width: 600px) {
+  #movie-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Desktop - 3 kolonner */
+@media (min-width: 992px) {
+  #movie-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Store skærme - 4 kolonner */
+@media (min-width: 1400px) {
+  #movie-list {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.movie-card.loading {
+  background: #f0f0f0;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.movie-list-empty {
+  grid-column: 1 / -1; /* Fylder alle kolonner */
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
 }
