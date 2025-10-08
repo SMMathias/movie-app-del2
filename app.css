@@ -101,7 +101,6 @@ main {
   align-items: center;
   gap: 0.6rem;
   background: rgba(60, 64, 67, 0.45);
-  padding: 0.6rem 0.85rem;
   border-radius: var(--radius);
   border: 1px solid rgba(172, 198, 201, 0.25);
 }
@@ -168,7 +167,8 @@ main {
   cursor: pointer;
   box-shadow: var(--shadow);
   transition: var(--transition);
-  align-self: stretch;
+  align-self: center;
+  margin-top: 13px;
 }
 
 .clear-btn:hover {

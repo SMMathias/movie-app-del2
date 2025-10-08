@@ -15,7 +15,7 @@
     <main>
       <section class="filterbar">
         <div class="search-filter">
-          <label for="search-input">🔍 Søg:</label>
+          <label for="search-input"></label>
           <input
             id="search-input"
             type="search"
@@ -25,7 +25,7 @@
         </div>
 
         <div class="genre-filter">
-          <label for="genre-select">🎭 Genre:</label>
+          <label for="genre-select"></label>
           <select id="genre-select">
             <option value="all">Alle genrer</option>
           </select>
@@ -33,9 +33,21 @@
 
         <div class="year-filter">
           <label>📅 År:</label>
-          <input type="number" id="year-from" placeholder="Fra" min="1900" max="2099" />
+          <input
+            type="number"
+            id="year-from"
+            placeholder="Fra"
+            min="1900"
+            max="2099"
+          />
           <span>til</span>
-          <input type="number" id="year-to" placeholder="Til" min="1900" max="2099" />
+          <input
+            type="number"
+            id="year-to"
+            placeholder="Til"
+            min="1900"
+            max="2099"
+          />
         </div>
 
         <div class="rating-filter">
@@ -60,7 +72,7 @@
         </div>
 
         <div class="sort-filter">
-          <label for="sort-select">📊 Sortér:</label>
+          <label for="sort-select"></label>
           <select id="sort-select">
             <option value="none">Ingen sortering</option>
             <option value="title">Titel (A-Å)</option>
@@ -69,7 +81,9 @@
           </select>
         </div>
 
-        <button id="clear-filters" class="clear-btn" type="button">🗑️ Ryd alle filtre</button>
+        <button id="clear-filters" class="clear-btn" type="button">
+          Ryd alle filtre
+        </button>
       </section>
 
       <section id="movie-list" class="movie-grid"></section>
