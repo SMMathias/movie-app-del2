@@ -66,19 +66,61 @@ main {
    ===================== */
 .filterbar {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
-  align-items: center;
-  margin-bottom: 2rem;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.filterbar label {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 500;
 }
 
 #search-input {
-  flex: 1;
-  min-width: 120px;
+  min-width: 220px;
+}
+
+.search-filter,
+.genre-filter,
+.sort-filter,
+.year-filter,
+.rating-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.year-filter,
+.rating-filter {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(60, 64, 67, 0.45);
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(172, 198, 201, 0.25);
+}
+
+.year-filter label,
+.rating-filter label {
+  margin-bottom: 0;
+}
+
+.year-filter input,
+.rating-filter input {
+  width: 90px;
 }
 
 #search-input,
 #genre-select,
-#sort-select {
+#sort-select,
+.year-filter input,
+.rating-filter input {
   background: var(--bg-card);
   color: var(--text);
   border: 1px solid var(--secondary);
@@ -91,7 +133,9 @@ main {
 
 #search-input:focus,
 #genre-select:focus,
-#sort-select:focus {
+#sort-select:focus,
+.year-filter input:focus,
+.rating-filter input:focus {
   outline: 2px solid var(--secondary);
   border-color: var(--secondary);
 }
@@ -103,8 +147,34 @@ main {
 
 #genre-select,
 #sort-select {
-  min-width: 160px;
+  min-width: 180px;
   cursor: pointer;
+}
+
+.year-filter span,
+.rating-filter span {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.clear-btn {
+  background: var(--error);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.85rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  align-self: stretch;
+}
+
+.clear-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  opacity: 0.9;
 }
 
 /* =====================
